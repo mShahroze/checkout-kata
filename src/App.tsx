@@ -2,16 +2,22 @@ import React, { useState } from 'react';
 import { calculateTotal } from './checkout';
 
 const App: React.FC = () => {
+  // Store the list of items added to the basket
   const [basket, setBasket] = useState<string[]>([]);
+  // Controlled input state for the current item being typed
   const [item, setItem] = useState<string>('');
 
+  // Add the current item to the basket
   const addItem = () => {
     if (item.trim()) {
+      // Add item in uppercase (e.g. "a" becomes "A") to match pricing rules
       setBasket([...basket, item.trim().toUpperCase()]);
+      // Clear the input field after adding
       setItem('');
     }
   };
 
+  // Get the current total price for all items in the basket
   const total = calculateTotal(basket);
 
   return (
