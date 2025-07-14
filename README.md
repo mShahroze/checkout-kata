@@ -1,50 +1,74 @@
 # Checkout Kata
 
-A simple checkout system built with React and TypeScript for the CDL Software Engineer Assessment.
+A checkout system built with React and TypeScript for the CDL Software Engineer Assessment. This project implements a simple shopping basket that calculates the total price of items based on given pricing rules, including special offers (e.g., 3 A's for £1.30). It demonstrates key full-stack development concepts such as modular design, type safety, state management, and unit testing.
 
-# Getting Started with Create React App
+## Features
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- **User Interface:** A simple React-based UI for adding items (A, B, C, D) to a basket and displaying the running total.
+- **Pricing Logic:** Handles individual item prices and special offers (e.g., 3 A's for £1.30, 2 B's for £0.45).
+- **Type Safety:** Uses TypeScript for robust type definitions of pricing rules and checkout logic.
+- **Testing:** Includes Jest unit tests to verify pricing calculations and edge cases.
+- **Modular Design:** Separates pricing rules, checkout logic, and UI components for maintainability.
 
-## Available Scripts
+## Pricing Rules
 
-In the project directory, you can run:
+| Item | Unit Price (pence) | Special Price (pence) |
+|------|--------------------|-----------------------|
+| A    | 50                 | 3 for 130             |
+| B    | 30                 | 2 for 45              |
+| C    | 20                 | -                     |
+| D    | 15                 | -                     |
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/checkout-kata.git
+   cd checkout-kata
+   ```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### `npm test`
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+- Enter an item SKU (A, B, C, or D) in the input field and click "Add Item."
+- The basket displays the added items, and the running total updates automatically, applying special offers where applicable.
+- Example: Adding three A's results in a total of £1.30 instead of £1.50 due to the special offer.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Running Tests
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Run unit tests to verify the checkout logic:
+```bash
+npm test
+```
+The tests cover individual item pricing, special offers, mixed items, and edge cases like unknown items.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
 
-### `npm run eject`
+- `src/App.tsx`: Main React component with the UI for adding items and displaying the basket and total.
+- `src/pricingRules.ts`: Defines pricing rules and special offers for items A, B, C, and D.
+- `src/checkout.ts`: Contains the logic to calculate the total price based on items and pricing rules.
+- `src/checkout.test.ts`: Jest unit tests for the checkout logic.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Development Notes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Built with **React** and **TypeScript** to ensure a modern, type-safe frontend.
+- Kept boilerplate minimal, focusing on core functionality as per the assessment guidelines.
+- Used meaningful commit messages to show development progress (see commit history).
+- Error handling included for invalid items (e.g., throws an error for unknown SKUs).
+- No external dependencies beyond Create React App and Jest for testing.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Future Improvements
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Add styling (e.g., Tailwind CSS) for a more polished UI.
+- Implement the optional Java SpringBoot backend for total calculations.
+- Enhance the UI with features like removing items from the basket or resetting it.
