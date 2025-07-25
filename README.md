@@ -23,7 +23,7 @@ A checkout system built with React and TypeScript for the CDL Software Engineer 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/checkout-kata.git
+   git clone https://github.com/mShahroze/checkout-kata.git
    cd checkout-kata
    ```
 
